@@ -1,0 +1,36 @@
+﻿{
+  "protocolVersion": 1,
+  "id": "scrapling",
+  "name": "Scrapling",
+  "category": "crawl",
+  "tier": "optional",
+  "description": "Scrapling MCP（包装官方包 scrapling[ai]）",
+  "source": {
+    "github": "https://github.com/youcizi-art/cizhenyu_scrapling",
+    "defaultRef": "master"
+  },
+  "install": {
+    "runtime": "python",
+    "steps": [
+      { "run": "ensure_venv", "args": [] },
+      { "run": "pip", "args": ["install", "-U", "pip"] },
+      { "run": "pip", "args": ["install", "scrapling[ai]", "--no-build-isolation"] }
+    ],
+    "readyCheck": ["mcp_launcher.py"]
+  },
+  "env": [
+    { "name": "CIZHENYU_AUTH_DIR", "from": "credentialsDir" }
+  ],
+  "mcp": {
+    "transport": "stdio",
+    "command": "python",
+    "args": ["mcp_launcher.py"],
+    "cwd": "."
+  },
+  "guides": { "setup": "guides/setup.md" },
+  "health": {
+    "requireCredentials": false,
+    "requireReadyFiles": ["mcp_launcher.py"]
+  },
+  "actions": []
+}
