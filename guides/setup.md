@@ -1,4 +1,4 @@
-﻿# Scrapling 配置
+# Scrapling 配置
 
 1. 本仓库是词真语 Deploy 协议包装层；运行时依赖官方 PyPI 包 `scrapling[ai]`。
 2. 在工具箱「添加工具」填写：`https://github.com/youcizi-art/cizhenyu_scrapling`（或本地 ZIP）。
