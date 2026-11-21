@@ -4,7 +4,7 @@
   "name": "Scrapling",
   "category": "crawl",
   "tier": "optional",
-  "description": "Scrapling MCP（包装官方包 scrapling[ai]）",
+  "description": "Scrapling MCP (wraps official scrapling[ai] package)",
   "source": {
     "github": "https://github.com/youcizi-art/cizhenyu_scrapling",
     "defaultRef": "master"
@@ -12,25 +12,65 @@
   "install": {
     "runtime": "python",
     "steps": [
-      { "run": "ensure_venv", "args": [] },
-      { "run": "pip", "args": ["install", "-U", "pip"] },
-      { "run": "pip", "args": ["install", "scrapling[ai]", "--no-build-isolation"] }
+      {
+        "run": "ensure_venv",
+        "args": []
+      },
+      {
+        "run": "pip",
+        "args": [
+          "install",
+          "-U",
+          "pip"
+        ]
+      },
+      {
+        "run": "pip",
+        "args": [
+          "install",
+          "scrapling[ai]",
+          "--no-build-isolation"
+        ]
+      }
     ],
-    "readyCheck": ["mcp_launcher.py"]
+    "readyCheck": [
+      "mcp_launcher.py"
+    ]
   },
   "env": [
-    { "name": "CIZHENYU_AUTH_DIR", "from": "credentialsDir" }
+    {
+      "name": "CIZHENYU_AUTH_DIR",
+      "from": "credentialsDir"
+    }
   ],
   "mcp": {
     "transport": "stdio",
     "command": "python",
-    "args": ["mcp_launcher.py"],
+    "args": [
+      "mcp_launcher.py"
+    ],
     "cwd": "."
   },
-  "guides": { "setup": "guides/setup.md" },
+  "guides": {
+    "setup": "guides/setup.md",
+    "setupByLocale": {
+      "zh-CN": "guides/setup.md",
+      "zh": "guides/setup.md",
+      "en": "guides/setup.en.md",
+      "en-US": "guides/setup.en.md"
+    }
+  },
   "health": {
     "requireCredentials": false,
-    "requireReadyFiles": ["mcp_launcher.py"]
+    "requireReadyFiles": [
+      "mcp_launcher.py"
+    ]
   },
-  "actions": []
+  "actions": [],
+  "defaultLocale": "en",
+  "i18n": {
+    "zh-CN": {
+      "description": "Scrapling MCP（包装官方包 scrapling[ai]）"
+    }
+  }
 }
